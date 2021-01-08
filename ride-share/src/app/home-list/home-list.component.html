@@ -1,0 +1,43 @@
+
+
+<div *ngIf="showMainContent">
+    <main  role="main" class="container">
+        <h3>Upcoming Trips</h3>
+    <input #searchBar class="form-control" name='searchBar'  value=""  type="text" placeholder="Search From where do you want to travel" aria-label="Search" (click)="Search(searchBar.value);">
+    <button class="btn btn-dark" name='searchBar'  value="" (click)="ShowHideButton(searchBar.value)" style="margin-top: 10px;">Search</button>
+        <div >
+        <ul *ngFor = "let ride of rides.slice().reverse();" class="list-group list-group-flush"  >
+            <li class="list-group-item text-warning">
+                <a routerLink="/ride/{{ride._id}}"><div><strong >{{ ride.From}} to {{ ride.To}}</strong></div></a> <div><strong style="margin-right: 50%;">${{ ride.rate}}</strong> </div><br>
+            </li>
+        </ul>
+    </div>
+    
+    <!-- <div *ngif = "div2">
+        Div 2
+    </div> -->
+    </main>
+  </div>
+  <div *ngIf="!showMainContent">
+    <main  role="main" class="container">
+        <h3>Upcoming Trips</h3>
+        <div >
+        <ul *ngFor = "let t of temp.slice().reverse();" class="list-group list-group-flush"  >
+            <li class="list-group-item text-warning">
+                <a routerLink="/ride/{{t._id}}"><div><strong >{{ t.From}} to {{ t.To}}</strong></div></a> <div><strong style="margin-right: 50%;">${{ t.rate}}</strong> </div><br>
+            </li>
+        </ul>
+    </div>
+    
+    <!-- <div *ngif = "div2">
+        Div 2
+    </div> -->
+    </main>
+    <button (click)="ShowHideButton('')">Show Main Content</button>
+  </div>
+
+
+
+
+
+

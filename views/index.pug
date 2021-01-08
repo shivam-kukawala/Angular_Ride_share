@@ -1,0 +1,15 @@
+extends layout
+
+block content
+  h1= title
+      each item in ride
+        li
+          item.r_name 
+          item.departure_time
+          item.From
+          item.To
+          item.rate
+          item.date
+          item.contact
+          item.email
+

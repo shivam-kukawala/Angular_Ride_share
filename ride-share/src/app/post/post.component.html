@@ -1,0 +1,44 @@
+<script>
+    function myFunction() {
+      alert("Hello\nHow are you?");
+    }
+      </script>
+<div class="card text-center">
+    <div class="card-header">
+      Post a trip
+    </div>
+    <div class="card-body">
+      <h5 class="card-title">Earn money while you travel.</h5>
+      <form (ngSubmit)="createNewRide(newRide)">
+        <label for="r_name">Name</label><br>
+        <input [(ngModel)]="newRide.r_name" id="r_name" name="r_name" required="required" minlength="3" #r_name="ngModel"><br><br>
+        <div *ngIf="r_name.invalid && (r_name.dirty || r_name.touched)"
+        class="alert alert-danger">
+        <div *ngIf="r_name.errors.required">
+            Name is required.
+          </div>
+
+          <div *ngIf="r_name.errors.required">
+            Name is required.
+          </div>
+          <div *ngIf="r_name.errors.minlength">
+            Name must be at least 3 characters long.
+          </div>  
+        </div>
+        <label for="departure_time">Departure Time</label><br>
+        <input [(ngModel)]="newRide.departure_time" id="departure_time" name="departure_time" required="required"><br><br>
+        <label for="From">From</label><br>
+        <input [(ngModel)]="newRide.From" id="From" name="From" required="required"><br><br>
+        <label for="To">To</label><br>
+        <input [(ngModel)]="newRide.To" id="To" name="To" required="required"><br><br>
+        <label for="rate">rate</label><br>
+        <input [(ngModel)]="newRide.rate" id="rate" name="rate" required="required"><br><br>
+        <label for="date">date</label><br>
+        <input [(ngModel)]="newRide.date" id="date" name="date" required="required"><br><br>
+        <label for="contact">contact</label><br>
+        <input [(ngModel)]="newRide.contact" id="contact" name="contact" required="required"><br><br>
+        <label for="email">email</label><br>
+        <input [(ngModel)]="newRide.email" id="email" name="email" required="required"><br><br>
+        <button class="btn btn-primary" type="submit" >Post</button>
+    </form>
+  </div>
